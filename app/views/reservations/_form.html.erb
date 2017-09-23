@@ -1,0 +1,62 @@
+<%= form_with(model: reservation, local: true) do |form| %>
+  <% if reservation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+
+      <ul>
+      <% reservation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Reservation_Id %>
+    <%= form.text_field :Reservation_Id, id: :reservation_Reservation_Id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Customer_Email %>
+    <%= form.text_field :Customer_Email, id: :reservation_Customer_Email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Checkout_Date %>
+    <%= form.datetime_select :Checkout_Date, id: :reservation_Checkout_Date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Amount %>
+    <%= form.text_field :Amount, id: :reservation_Amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Checkout_Status %>
+    <%= form.text_field :Checkout_Status, id: :reservation_Checkout_Status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Return_Date %>
+    <%= form.datetime_select :Return_Date, id: :reservation_Return_Date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :License_Tag %>
+    <%= form.text_field :License_Tag, id: :reservation_License_Tag %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Drop_Off_Location %>
+    <%= form.text_field :Drop_Off_Location, id: :reservation_Drop_Off_Location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Reservation_Status %>
+    <%= form.text_field :Reservation_Status, id: :reservation_Reservation_Status %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

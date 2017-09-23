@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Username: MyString
+  Email: MyString
+  No_Of_Cars_Rented: 1
+  Password: MyString
+  Rental_Charge: 1.5
+
+two:
+  Username: MyString
+  Email: MyString
+  No_Of_Cars_Rented: 1
+  Password: MyString
+  Rental_Charge: 1.5

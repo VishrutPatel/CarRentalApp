@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @customer.Username %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @customer.Email %>
+</p>
+
+<p>
+  <strong>No of cars rented:</strong>
+  <%= @customer.No_Of_Cars_Rented %>
+</p>
+
+<p>
+  <strong>Rental charge:</strong>
+  <%= @customer.Rental_Charge %>
+</p>
+
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>

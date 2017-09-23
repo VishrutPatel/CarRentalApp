@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Reservation id:</strong>
+  <%= @reservation.Reservation_Id %>
+</p>
+
+<p>
+  <strong>Customer email:</strong>
+  <%= @reservation.Customer_Email %>
+</p>
+
+<p>
+  <strong>Checkout date:</strong>
+  <%= @reservation.Checkout_Date %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @reservation.Amount %>
+</p>
+
+<p>
+  <strong>Checkout status:</strong>
+  <%= @reservation.Checkout_Status %>
+</p>
+
+<p>
+  <strong>Return date:</strong>
+  <%= @reservation.Return_Date %>
+</p>
+
+<p>
+  <strong>License tag:</strong>
+  <%= @reservation.License_Tag %>
+</p>
+
+<p>
+  <strong>Drop off location:</strong>
+  <%= @reservation.Drop_Off_Location %>
+</p>
+
+<p>
+  <strong>Reservation status:</strong>
+  <%= @reservation.Reservation_Status %>
+</p>
+
+<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
+<%= link_to 'Back', reservations_path %>

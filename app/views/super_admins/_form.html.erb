@@ -1,0 +1,32 @@
+<%= form_with(model: super_admin, local: true) do |form| %>
+  <% if super_admin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(super_admin.errors.count, "error") %> prohibited this super_admin from being saved:</h2>
+
+      <ul>
+      <% super_admin.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Name %>
+    <%= form.text_field :Name, id: :super_admin_Name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Password %>
+    <%= form.text_field :Password, id: :super_admin_Password %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Email %>
+    <%= form.text_field :Email, id: :super_admin_Email %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
