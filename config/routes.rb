@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   get '/logout',  to: 'sessions#destroy'
-  get '/signup', to: 'customers#new'
-  post '/signup', to: 'customers#create'
+  #get '/signup', to: 'customers#new'
+  #post '/signup', to: 'customers#create'
   root  'sessions#new'
   resources :reservations
   resources :cars
