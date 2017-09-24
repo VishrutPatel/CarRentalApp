@@ -1,3 +1,5 @@
+<% if @customer && @customer.role == "admin" %>
+
 <% provide(:title, "Log in") %>
 <h1>Log in</h1>
 
@@ -17,4 +19,6 @@
     <p>New user? <%= link_to "Sign up now!", new_customer_path %></p>
   </div>
 </div>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<% else %>
+    <%= link_to 'view cars', customers_path %>
+<% end %>
