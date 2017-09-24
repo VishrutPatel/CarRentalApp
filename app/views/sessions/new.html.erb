@@ -1,6 +1,6 @@
-<% if @customer && @customer.role == "admin" %>
+<% if session[:customer_id].nil?  %>
 
-<% provide(:title, "Log in") %>
+    <% provide(:title, "Log in") %>
 <h1>Log in</h1>
 
 <div class="row">
@@ -20,5 +20,5 @@
   </div>
 </div>
 <% else %>
-    <%= link_to 'view cars', customers_path %>
+    <%= link_to 'view cars', cars_path %>
 <% end %>
