@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Status:</strong>
+  <%#<strong>Status:</strong>
   <%= @car.Status %>
 </p>
 
@@ -34,6 +34,9 @@
   <strong>Location:</strong>
   <%= @car.Location %>
 </p>
-
-<%= link_to 'Edit', edit_car_path(@car) %> |
+<%= session[:License_Tag] = @car.License_Tag %>
+<p>
+  <%= link_to 'New Reservation', new_reservation_path%>
+</p>
+<%#= link_to 'Edit', edit_car_path(@car) %> |
 <%= link_to 'Back', cars_path %>

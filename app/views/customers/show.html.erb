@@ -20,7 +20,13 @@
   <%= @customer.Rental_Charge %>
 </p>
 
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<% if @customer.role == "admin" %>
-<%= link_to 'Back', customers_path %>
-<% end %>
+  <div align="center">
+  <%= link_to 'Edit', edit_customer_path(@customer) %>
+  <br><br>
+  <%= link_to 'Search for a car', cars_path %>
+  <br><br><%= link_to 'View checkout history', reservations_path%>
+  <br><br><%= link_to 'Suggest a car', new_car_path %>
+  <% if @customer.role == "admin" %>
+      <%= link_to 'Back', customers_path %>
+  <% end %>
+  </div>

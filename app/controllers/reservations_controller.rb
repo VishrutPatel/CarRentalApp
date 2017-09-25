@@ -16,6 +16,7 @@ class ReservationsController < ApplicationController
   # GET /reservations/new
   def new
     @reservation = Reservation.new
+    @reservation.Reservation_Status = "reserved"
   end
 
   # GET /reservations/1/edit
@@ -26,6 +27,8 @@ class ReservationsController < ApplicationController
   # POST /reservations.json
   def create
     @reservation = Reservation.new(reservation_params)
+    @reservation.Reservation_Status = "reserved"
+    @reservation.Checkout_Status = "checked_out"
 
     respond_to do |format|
       if @reservation.save

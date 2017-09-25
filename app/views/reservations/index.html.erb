@@ -20,6 +20,7 @@
 
   <tbody>
     <% @reservations.each do |reservation| %>
+    <% if reservation.Customer_Email == session[:customer_email] %>
       <tr>
         <td><%= reservation.Reservation_Id %></td>
         <td><%= reservation.Customer_Email %></td>
@@ -31,9 +32,17 @@
         <td><%= reservation.Drop_Off_Location %></td>
         <td><%= reservation.Reservation_Status %></td>
         <td><%= link_to 'Show', reservation %></td>
-        <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
+        <% if reservation.Reservation_Status == "reserved" %>
+            <%= reservation.Reservation_Status == "returned" %>
+          <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
+        <% end %>
+        <% if reservation.Reservation_Status == "checked_out" %>
+            <%= reservation.Reservation_Status = "returned" %>
+          <td><%= link_to 'Update', reservation_path(reservation)  %></td>
+        <% end %>
         <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+    <% end %>
     <% end %>
   </tbody>
 </table>

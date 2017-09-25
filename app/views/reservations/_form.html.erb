@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :Customer_Email %>
-    <%= form.text_field :Customer_Email, id: :reservation_Customer_Email %>
+    <%= form.text_field :Customer_Email, id: :reservation_Customer_Email, :value => session[:customer_email] %>
   </div>
 
   <div class="field">
@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= form.label :Checkout_Status %>
-    <%= form.text_field :Checkout_Status, id: :reservation_Checkout_Status %>
+    <%= form.label :Checkout_Status,  :value => "not_checked_out",  %>
   </div>
 
   <div class="field">
@@ -43,7 +43,7 @@
 
   <div class="field">
     <%= form.label :License_Tag %>
-    <%= form.text_field :License_Tag, id: :reservation_License_Tag %>
+    <%= form.text_field :License_Tag, id: :reservation_License_Tag, :value => session[:License_Tag] %>
   </div>
 
   <div class="field">
@@ -51,11 +51,11 @@
     <%= form.text_field :Drop_Off_Location, id: :reservation_Drop_Off_Location %>
   </div>
 
-  <div class="field">
-    <%= form.label :Reservation_Status %>
-    <%= form.text_field :Reservation_Status, id: :reservation_Reservation_Status %>
+  <!--<div class="field">
+    <%#= form.label :Reservation_Status %>
+    <%#= form.text_field :Reservation_Status, id: :reservation_Reservation_Status %>
   </div>
-
+  -->
   <div class="actions">
     <%= form.submit %>
   </div>

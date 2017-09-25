@@ -5,17 +5,9 @@ class CarsController < ApplicationController
   # GET /cars.json
   def index
     @cars = Car.search(params)
-    if(@cars.nil?)
-      flash.now[:danger] = 'Invalid Manufacturer'
-    end
-  end
-
-  def search_by_loc
-    @cars = if params[:term]
-          Car.where('Location LIKE ?', "%#{params[:term]}%")
-        else
-          Car.all
-        end
+    #if(@cars.nil?)
+    #  flash.now[:danger] = 'Invalid Manufacturer'
+    #end
   end
 
   # GET /cars/1

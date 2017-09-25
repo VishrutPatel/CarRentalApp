@@ -1,4 +1,4 @@
-<%# if session[:customer_id].nil?  %>
+<% if session[:customer_id].nil?  %>
 
     <% provide(:title, "Log in") %>
 <h1>Log in</h1>
@@ -19,6 +19,16 @@
     <p>New user? <%= link_to "Sign up now!", new_customer_path %></p>
   </div>
 </div>
-<%# else %>
+<% else %>
     <%#= link_to 'view cars', cars_path %>
-<%# end %>
+    <div align="center">
+      <%#= link_to 'Edit', edit_customer_path(@customer) %>
+      <br><br>
+      <%= link_to 'Search for a car', cars_path %>
+      <br><br><%= link_to 'View checkout history', reservations_path%>
+      <br><br><%= link_to 'Suggest a car', new_car_path %>
+      <%# if @customer.role == "admin" %>
+          <%#= link_to 'Back', customers_path %>
+      <%# end %>
+    </div>
+<% end %>
