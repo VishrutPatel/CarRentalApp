@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170924080217) do
+ActiveRecord::Schema.define(version: 20170923201006) do
 
   create_table "admins", force: :cascade do |t|
     t.string "Email"
@@ -38,9 +38,9 @@ ActiveRecord::Schema.define(version: 20170924080217) do
     t.integer "No_Of_Cars_Rented"
     t.string "password_digest"
     t.float "Rental_Charge"
+    t.string "role", default: "user"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "role", default: "user"
   end
 
   create_table "reservations", force: :cascade do |t|

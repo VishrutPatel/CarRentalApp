@@ -4,7 +4,18 @@ class CarsController < ApplicationController
   # GET /cars
   # GET /cars.json
   def index
-    @cars = Car.search(params[:term])
+    @cars = Car.search(params)
+    if(@cars.nil?)
+      flash.now[:danger] = 'Invalid Manufacturer'
+    end
+  end
+
+  def search_by_loc
+    @cars = if params[:term]
+          Car.where('Location LIKE ?', "%#{params[:term]}%")
+        else
+          Car.all
+        end
   end
 
   # GET /cars/1
@@ -69,6 +80,6 @@ class CarsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def car_params
-      params.require(:car).permit(:Status, :Model, :Manufacturer, :Rate, :License_Tag, :Style, :Location, :term)
+      params.require(:car).permit(:Status, :Model, :Manufacturer, :Rate, :License_Tag, :Style, :Location, :term, :location, :manufacturer, :style, :status)
     end
 end

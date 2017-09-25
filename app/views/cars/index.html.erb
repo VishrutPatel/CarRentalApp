@@ -3,9 +3,19 @@
 <h1>Cars</h1>
 
 <%= form_tag(cars_path, method: :get) do %>
-    <%= text_field_tag :term, params[:term] %>
+    <%= text_field_tag :term, params[:term], :placeholder => "Search by Model" %>
+    <%= text_field_tag :location, params[:location], :placeholder => "Search by Location" %>
+    <%= text_field_tag :manufacturer, params[:manufacturer], :placeholder => "Search by Manufacturer" %>
+    <%= text_field_tag :style, params[:style], :placeholder => "Search by Style" %>
+    <%= text_field_tag :status, params[:status], :placeholder => "Search by Status" %>
     <%= submit_tag 'Search', Model:nil %>
 <% end %>
+
+<%# form_tag :action => 'search_by_loc' do %>
+    <%#= text_field_tag :term, params[:term] %>
+    <%# submit_tag 'Search Location', Model:nil %>
+<%# end %>
+
 <table>
   <thead>
     <tr>
@@ -21,20 +31,23 @@
   </thead>
 
   <tbody>
-    <% @cars.each do |car| %>
-      <tr>
-        <td><%= car.Status %></td>
-        <td><%= car.Model %></td>
-        <td><%= car.Manufacturer %></td>
-        <td><%= car.Rate %></td>
-        <td><%= car.License_Tag %></td>
-        <td><%= car.Style %></td>
-        <td><%= car.Location %></td>
-        <td><%= link_to 'Show', car %></td>
-        <td><%= link_to 'Edit', edit_car_path(car) %></td>
-        <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+      <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+      <% @cars.each do |car| %>
+        <tr>
+          <td><%= car.Status %></td>
+          <td><%= car.Model %></td>
+          <td><%= car.Manufacturer %></td>
+          <td><%= car.Rate %></td>
+          <td><%= car.License_Tag %></td>
+          <td><%= car.Style %></td>
+          <td><%= car.Location %></td>
+          <td><%= link_to 'Show', car %></td>
+          <td><%= link_to 'Edit', edit_car_path(car) %></td>
+          <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
   </tbody>
 </table>
 
